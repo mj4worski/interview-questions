@@ -1,0 +1,25 @@
+@import './settings.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-white;
+  padding: 3rem;
+}
+
+
+body {
+  font-family: "Lato", sans-serif;
+}
