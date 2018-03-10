@@ -1,0 +1,62 @@
+@import '../../settings.scss';
+
+.header {
+  height: 30vh;
+  background-image: linear-gradient(to right bottom, rgba($color-dark-blue, 0.8), rgba($color-yellow, 0.8)), url('../../assets/pexels-photo.jpg');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  justify-content: center;
+}
+
+.header-primary {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  justify-content: center;
+
+  &--main {
+    display: block;
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.75rem;
+    text-align: center;
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
