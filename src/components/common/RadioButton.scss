@@ -1,3 +1,4 @@
+@import '../../settings.scss';
 
 $button-size: 2.5rem;
 
@@ -11,7 +12,7 @@ $button-size: 2.5rem;
     position: relative;
     height: $button-size;
     width: $button-size;
-    background-color: #eee;
+    background-color: $color-white;
     border-radius: 50%;
 
     //inner dot
@@ -24,7 +25,7 @@ $button-size: 2.5rem;
       width: $button-size/3;
       height: $button-size/3;
       border-radius: 50%;
-      background: white;
+      background: $color-white;
     }
   }
 
@@ -44,7 +45,7 @@ $button-size: 2.5rem;
 }
 
 .radio-button .radio-button__native:checked ~ .radio-button__button {
-  background-color: #2196F3;
+  background-color: $color-blue;
 }
 
 .radio-button input:checked ~ .radio-button__button:after {
