@@ -2,6 +2,10 @@
 
 $button-size: 2.5rem;
 
+.button-container {
+  display: flex;
+}
+
 .radio-button {
   display: flex;
   cursor: pointer;
@@ -29,7 +33,7 @@ $button-size: 2.5rem;
     }
   }
 
-  &__content {
+  &__label {
     margin-left: 10px;
   }
 

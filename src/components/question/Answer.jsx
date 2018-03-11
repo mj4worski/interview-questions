@@ -1,28 +1,31 @@
 import React, {Children} from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid4';
 import {RadioButton} from '../common';
 import './Answer.css';
 
-const AnswerItem = ({children}) => (
-    <li className="answer__item">
-        <RadioButton>{children}</RadioButton>
-    </li>
-);
-
-AnswerItem.proptypes = {
-    children: PropTypes.string.isRequired,
+const Answer = ({children}) => {
+  const id = uuid();
+  return (
+    <ul className="answer">
+      {
+        Children.map(children, (child, idx) => (
+            <li className="answer__item">
+              <RadioButton
+                name={id}
+              >
+                {child}
+              </RadioButton>
+            </li>
+          )
+        )
+      }
+    </ul>
+  )
 };
 
-const Answer = ({children}) => (
-    <ul className="answer">
-        {
-            Children.map(children, child => <AnswerItem>{child}</AnswerItem>)
-        }
-    </ul>
-);
-
 Answer.proptypes = {
-    children: PropTypes.arrayOf(PropTypes.string),
+  children: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Answer;

@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './RadioButton.css';
 
-const RadioButton = ({children}) => (
+const RadioButton = ({children, name}) => (
     <label className="radio-button">
-        <input className="radio-button__native" type="radio" checked="checked" name="radio"/>
-        <span className="radio-button__button"/>
-        <span className="radio-button__content">{children}</span>
+        <div className="button-container">
+            <input className="radio-button__native" type="radio" defaultChecked name={name}/>
+            <span className="radio-button__button"/>
+        </div>
+        <span className="radio-button__label">{children}</span>
     </label>
 );
+
+RadioButton.propTypes = {
+    children: PropTypes.string,
+    name: PropTypes.string,
+};
 
 export default RadioButton;
