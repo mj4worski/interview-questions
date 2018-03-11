@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Which of the following function of String object returns the index within the calling String object of the last occurrence of the specified value?",
+    "answers": [
+      "lastIndexOf()",
+      "search()",
+      "substr()",
+      "indexOf()"
+    ]
+  },
+  {
+    "question": "Which of the following is a disadvantage of using JavaScript?",
+    "answers": [
+      "Client-side JavaScript does not allow the reading or writing of files.",
+      "JavaScript can not be used for Networking applications because there is no such support available.",
+      "JavaScript doesn't have any multithreading or multiprocess capabilities.",
+      "All of the above."
+    ]
+  },
+  {
+    "question": "Which of the following function of String object causes a string to be displayed as a subscript, as if it were in a <sub> tag?",
+    "answers": [
+      "sup()",
+      "small()",
+      "strike()",
+      "sub()"
+    ]
+  }
+]

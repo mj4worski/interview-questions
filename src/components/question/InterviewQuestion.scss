@@ -11,8 +11,8 @@ $number-height: 5rem;
   width: 75vw;
   padding: 2.5rem 4.5rem;
   position: relative;
+  margin-bottom: 6rem;
 
-  //FIXME:: Wrong vertical position on small screens
   &__question-mark {
     display: flex;
     justify-content: center;

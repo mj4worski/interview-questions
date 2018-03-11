@@ -1,5 +1,6 @@
-import React from 'react';
-import { RadioButton }from '../common';
+import React, {Children} from 'react';
+import PropTypes from 'prop-types';
+import {RadioButton} from '../common';
 import './Answer.css';
 
 const AnswerItem = ({children}) => (
@@ -8,12 +9,20 @@ const AnswerItem = ({children}) => (
     </li>
 );
 
-const Answer = () => (
+AnswerItem.proptypes = {
+    children: PropTypes.string.isRequired,
+};
+
+const Answer = ({children}) => (
     <ul className="answer">
-        <AnswerItem>Answer 1</AnswerItem>
-        <AnswerItem>Answer 2</AnswerItem>
-        <AnswerItem>Answer 3</AnswerItem>
+        {
+            Children.map(children, child => <AnswerItem>{child}</AnswerItem>)
+        }
     </ul>
 );
+
+Answer.proptypes = {
+    children: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default Answer;
