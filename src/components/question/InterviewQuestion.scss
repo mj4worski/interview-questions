@@ -1,0 +1,31 @@
+@import '../../settings.scss';
+
+$number-height: 5rem;
+
+.interview-question {
+  border: $color-dark-blue 1px solid;
+  color: $color-blue;
+  font-size: 2rem;
+  font-weight: 600;
+  width: 75vw;
+  padding: 2.5rem 4.5rem;
+  position: relative;
+
+  //FIXME:: Wrong vertical position on small screens
+  &__question-mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(25% - 17.5px);
+    left: -$number-height/2;
+    width: $number-height;
+    height: $number-height;
+    text-align: center;
+    color: $color-white;
+  }
+
+  &__answers-container {
+    margin-top: 2rem;
+  }
+}

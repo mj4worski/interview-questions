@@ -1,5 +1,4 @@
 import React from 'react';
-import questionMark from './question-mark.svg';
 import './Question.css';
 
 const content = 'Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse\n' +
@@ -16,7 +15,6 @@ const content = 'Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse
 
 const Question = () => (
     <div className="question">
-        <img src={questionMark} className="question__question-mark" alt="question-mark" />
         {content}
     </div>
 );

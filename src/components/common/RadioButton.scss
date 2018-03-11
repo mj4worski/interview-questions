@@ -1,0 +1,52 @@
+
+$button-size: 2.5rem;
+
+.radio-button {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+
+  &__button {
+    position: relative;
+    height: $button-size;
+    width: $button-size;
+    background-color: #eee;
+    border-radius: 50%;
+
+    //inner dot
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 35%;
+      left: 35%;
+      width: $button-size/3;
+      height: $button-size/3;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+
+  &__content {
+    margin-left: 10px;
+  }
+
+  &__native {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.radio-button:hover .radio-button__native ~ .radio-button__button {
+  background-color: #ccc;
+}
+
+.radio-button .radio-button__native:checked ~ .radio-button__button {
+  background-color: #2196F3;
+}
+
+.radio-button input:checked ~ .radio-button__button:after {
+  display: block;
+}
