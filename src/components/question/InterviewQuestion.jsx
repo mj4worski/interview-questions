@@ -1,44 +1,33 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import questionMark from './question-mark.svg';
-import Question from './Question';
-import Answer from './Answer';
-import {getQuestions} from '../../api';
+import Answers from './Answers';
 import './InterviewQuestion.css';
 
 class InterviewQuestions extends PureComponent {
-  state = {
-    questions: []
+  static propTypes = {
+    question: PropTypes.string,
+    answers: PropTypes.arrayOf(PropTypes.shape({
+      answer: PropTypes.string,
+      correct: PropTypes.bool,
+    })),
   };
 
-  componentDidMount() {
-    this.setState({questions: getQuestions()})
-  }
-
   render() {
-    const {questions} = this.state;
-    if (questions.length > 0) {
-      return [
-        questions.map(({question, answers}, idx) => {
-          return (
-            <div
-              className="interview-question"
-              key={`${question.substring(0, 2)}+${idx}`}
-            >
-              <img src={questionMark} className="interview-question__question-mark" alt="question-mark"/>
-              <Question>
-                {question}
-              </Question>
-              <div className="interview-question__answers-container">
-                <Answer>
-                  {answers}
-                </Answer>
-              </div>
-            </div>
-          )
-        })
-      ]
-    }
-    return null;
+    const {question, answers} = this.props;
+    return (
+      <div>
+        <div className="interview-question">
+          <img src={questionMark} className="interview-question__question-mark" alt="question-mark"/>
+          <div>
+            {question}
+          </div>
+          <div className="interview-question__answers-container">
+            <Answers answers={answers} />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

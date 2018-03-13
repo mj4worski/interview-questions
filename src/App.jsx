@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import { InterviewQuestion } from './components/question';
+import { InterviewForm } from './components/question';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
         <Header/>
         <main className="sections">
             <section className="interview-questions">
-                <InterviewQuestion/>
+                <InterviewForm/>
             </section>
         </main>
       </div>

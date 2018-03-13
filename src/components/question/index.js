@@ -1,1 +1,1 @@
-export { default as InterviewQuestion } from './InterviewQuestion';
+export { default as InterviewForm } from './InterviewForm';

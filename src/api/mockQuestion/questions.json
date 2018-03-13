@@ -2,28 +2,64 @@
   {
     "question": "Which of the following function of String object returns the index within the calling String object of the last occurrence of the specified value?",
     "answers": [
-      "lastIndexOf()",
-      "search()",
-      "substr()",
-      "indexOf()"
+      {
+        "answer": "lastIndexOf()",
+        "correct": true
+      },
+      {
+        "answer": "search()",
+        "correct": false
+      },
+      {
+        "answer": "substr()",
+        "correct": false
+      },
+      {
+        "answer": "indexOf()",
+        "correct": false
+      }
     ]
   },
   {
     "question": "Which of the following is a disadvantage of using JavaScript?",
     "answers": [
-      "Client-side JavaScript does not allow the reading or writing of files.",
-      "JavaScript can not be used for Networking applications because there is no such support available.",
-      "JavaScript doesn't have any multithreading or multiprocess capabilities.",
-      "All of the above."
+      {
+        "answer": "Client-side JavaScript does not allow the reading or writing of files.",
+        "correct": false
+      },
+      {
+        "answer": "JavaScript can not be used for Networking applications because there is no such support available.",
+        "correct": false
+      },
+      {
+        "answer": "JavaScript doesn't have any multithreading or multiprocess capabilities.",
+        "correct": false
+      },
+      {
+        "answer": "All of the above.",
+        "correct": true
+      }
     ]
   },
   {
     "question": "Which of the following function of String object causes a string to be displayed as a subscript, as if it were in a <sub> tag?",
     "answers": [
-      "sup()",
-      "small()",
-      "strike()",
-      "sub()"
+      {
+        "answer": "sup()",
+        "correct": false
+      },
+      {
+        "answer": "small()",
+        "correct": false
+      },
+      {
+        "answer": "strike()",
+        "correct": false
+      },
+      {
+        "answer": "sub()",
+        "correct": true
+      }
     ]
   }
 ]
