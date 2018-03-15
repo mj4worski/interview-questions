@@ -28,5 +28,9 @@ $number-height: 5rem;
 
   &__answers-container {
     margin-top: 2rem;
+    background: $color-dark-blue;
+    color: $color-white;
+    border-radius: 10px;
+    padding: 1rem 3rem;
   }
 }

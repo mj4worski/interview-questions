@@ -1,17 +1,9 @@
 @import '../../settings.scss';
 
 .answer {
-  background: $color-dark-blue;
-  color: $color-white;
-  border-radius: 10px;
-  padding: 1rem 3rem;
-  list-style-type: none;
-
-  &__item {
     border: rgba($color-yellow, .5) 1px solid;
     padding: 5px 10px;
     border-radius: 10px;
     margin-top: 7px;
     margin-bottom: 7px;
-  }
 }

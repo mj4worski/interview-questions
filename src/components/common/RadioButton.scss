@@ -1,57 +1,70 @@
 @import '../../settings.scss';
 
-$button-size: 2.5rem;
-
-.button-container {
-  display: flex;
-}
+$button-size: 2rem;
 
 .radio-button {
   display: flex;
   cursor: pointer;
-  user-select: none;
   align-items: center;
 
-  &__button {
-    position: relative;
-    height: $button-size;
-    width: $button-size;
-    background-color: $color-white;
-    border-radius: 50%;
-
-    //inner dot
-    &:after {
-      content: "";
+  &__input {
+    &:checked,
+    &:not(:checked) {
       position: absolute;
-      display: none;
-      top: 35%;
-      left: 35%;
-      width: $button-size/3;
-      height: $button-size/3;
-      border-radius: 50%;
-      background: $color-white;
+      left: -9999px;
     }
   }
 
   &__label {
-    margin-left: 10px;
-  }
-
-  &__native {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+    flex: 1;
+    padding: 10px 5px;
   }
 }
 
-.radio-button:hover .radio-button__native ~ .radio-button__button {
-  background-color: #ccc;
+.radio-button__input,
+.radio-button__input:checked + .radio-button__label,
+.radio-button__input:not(:checked) + .radio-button__label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: $color-white;
 }
 
-.radio-button .radio-button__native:checked ~ .radio-button__button {
+.radio-button__input:checked + .radio-button__label:before,
+.radio-button__input:not(:checked) + .radio-button__label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  height: $button-size;
+  width: $button-size;
+  background-color: $color-white;
+}
+
+.radio-button__input:checked + .radio-button__label:after,
+.radio-button__input:not(:checked) + .radio-button__label:after {
+  content: '';
+  width: $button-size/1.5;
+  height: $button-size/1.5;
   background-color: $color-blue;
+  position: absolute;
+  top: 13px;
+  left: 4px;
+  border-radius: 100%;
+  transition: all 0.3s ease;
 }
 
-.radio-button input:checked ~ .radio-button__button:after {
-  display: block;
+.radio-button__input:not(:checked) + .radio-button__label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.radio-button__input:checked + .radio-button__label:after {
+  opacity: 1;
+  transform: scale(1);
 }

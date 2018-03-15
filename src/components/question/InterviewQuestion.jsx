@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import questionMark from './question-mark.svg';
-import Answers from './Answers';
+import Answer from './Answer';
 import './InterviewQuestion.css';
+import uuid from "uuid4";
 
 class InterviewQuestions extends PureComponent {
   static propTypes = {
@@ -11,10 +12,12 @@ class InterviewQuestions extends PureComponent {
       answer: PropTypes.string,
       correct: PropTypes.bool,
     })),
+    onAnswerClick: PropTypes.func,
   };
 
   render() {
-    const {question, answers} = this.props;
+    const {question, answers, onAnswerClick} = this.props;
+    const answersGroup = uuid();
     return (
       <div>
         <div className="interview-question">
@@ -23,7 +26,17 @@ class InterviewQuestions extends PureComponent {
             {question}
           </div>
           <div className="interview-question__answers-container">
-            <Answers answers={answers} />
+            {
+              answers.map(({answer}) => (
+                <Answer
+                  groupName={answersGroup}
+                  onAnswerClick={onAnswerClick.bind(null, {answer, question})}
+                  key={answer}
+                >
+                  {answer}
+                </Answer>
+              ))
+            }
           </div>
         </div>
       </div>
