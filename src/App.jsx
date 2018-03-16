@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom'
 import Header from './components/Header';
+import Result from './components/result';
 import { InterviewForm } from './components/question';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
+      <Router>
       <div className="App">
         <Header/>
         <main className="sections">
-            <section className="interview-questions">
-                <InterviewForm/>
-            </section>
+          <Route exact path="/" component={InterviewForm}/>
+          <Route exact path="/result" component={Result}/>
         </main>
       </div>
+      </Router>
     );
   }
 }
