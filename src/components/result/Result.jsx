@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import './Result.css';
 
-const Result = () => (
-  <div>
-    Result in progress :)
+const Result = ({answers}) => (
+  <div className="result">
+    {
+      answers.map(({question, answer}) => (
+        <Fragment key={answer}>
+          <div>{question}</div>
+          <div>{answer}</div>
+        </Fragment>
+        )
+      )
+    }
   </div>
 );
 

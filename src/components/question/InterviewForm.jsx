@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { uniqBy }from 'lodash';
 import {getQuestions} from '../../api';
 import InterviewQuestion from './InterviewQuestion';
@@ -10,6 +11,10 @@ class InterviewForm extends Component {
   state = {
     questions: [],
     fireRedirect: false,
+  };
+
+  static propTypes = {
+    onFormSubmit: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -23,7 +28,7 @@ class InterviewForm extends Component {
   };
 
   submitForm = () => {
-    this.userAnswers = uniqBy(this.userAnswers.reverse(), (answer) => answer.question);
+    this.props.onFormSubmit(uniqBy(this.userAnswers.reverse(), (answer) => answer.question));
     this.setState({ fireRedirect: true })
   };
 

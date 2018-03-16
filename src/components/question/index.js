@@ -1,1 +1,1 @@
-export { default as InterviewForm } from './InterviewForm';
+export { default as InterviewForm } from './InterviewFormContainer';
