@@ -40,11 +40,10 @@ class InterviewForm extends Component {
         <section className="interview-form">
           <div className="interview-form__questions">
           {
-            questions.map(({question, answers}) => (
+            questions.map((interviewQuestion) => (
               <InterviewQuestion
-                question={question}
-                answers={answers}
-                key={question}
+                interviewQuestion={interviewQuestion}
+                key={interviewQuestion.question}
                 onAnswerClick={this.collectUserAnswer}
               />
             ))

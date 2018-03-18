@@ -18,7 +18,8 @@
         "answer": "indexOf()",
         "correct": false
       }
-    ]
+    ],
+    "category": "javascript"
   },
   {
     "question": "Which of the following is a disadvantage of using JavaScript?",
@@ -39,7 +40,8 @@
         "answer": "All of the above.",
         "correct": true
       }
-    ]
+    ],
+    "category": "javascript"
   },
   {
     "question": "Which of the following function of String object causes a string to be displayed as a subscript, as if it were in a <sub> tag?",
@@ -60,6 +62,7 @@
         "answer": "sub()",
         "correct": true
       }
-    ]
+    ],
+    "category": "javascript"
   }
 ]
