@@ -3,4 +3,4 @@ import answers from './answers';
 
 export default combineReducers({
   answers
-})
+});

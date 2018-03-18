@@ -1,7 +1,7 @@
-import questions from './mockQuestion/questions'
+import questions from './mockQuestion/questions';
 
 const getQuestions = () => {
-    return questions;
+  return questions;
 };
 
 export default getQuestions;

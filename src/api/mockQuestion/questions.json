@@ -1,6 +1,7 @@
 [
   {
-    "question": "Which of the following function of String object returns the index within the calling String object of the last occurrence of the specified value?",
+    "question":
+      "Which of the following function of String object returns the index within the calling String object of the last occurrence of the specified value?",
     "answers": [
       {
         "answer": "lastIndexOf()",
@@ -25,15 +26,18 @@
     "question": "Which of the following is a disadvantage of using JavaScript?",
     "answers": [
       {
-        "answer": "Client-side JavaScript does not allow the reading or writing of files.",
+        "answer":
+          "Client-side JavaScript does not allow the reading or writing of files.",
         "correct": false
       },
       {
-        "answer": "JavaScript can not be used for Networking applications because there is no such support available.",
+        "answer":
+          "JavaScript can not be used for Networking applications because there is no such support available.",
         "correct": false
       },
       {
-        "answer": "JavaScript doesn't have any multithreading or multiprocess capabilities.",
+        "answer":
+          "JavaScript doesn't have any multithreading or multiprocess capabilities.",
         "correct": false
       },
       {
@@ -44,7 +48,8 @@
     "category": "javascript"
   },
   {
-    "question": "Which of the following function of String object causes a string to be displayed as a subscript, as if it were in a <sub> tag?",
+    "question":
+      "Which of the following function of String object causes a string to be displayed as a subscript, as if it were in a <sub> tag?",
     "answers": [
       {
         "answer": "sup()",

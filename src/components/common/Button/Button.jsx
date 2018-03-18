@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = ({children, onClick}) => (
+const Button = ({ children, onClick }) => (
   <button className="button" onClick={onClick}>
     {children}
   </button>
@@ -10,7 +10,7 @@ const Button = ({children, onClick}) => (
 
 Button.propTypes = {
   children: PropTypes.node,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export default Button;

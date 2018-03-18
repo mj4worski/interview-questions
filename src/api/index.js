@@ -1,1 +1,1 @@
-export {default as getQuestions} from './getQuestions';
+export { default as getQuestions } from './getQuestions';
