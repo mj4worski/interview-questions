@@ -18,7 +18,13 @@ const Result = ({ answers }) => {
             badAnswers += 1;
           }
         });
-        return <PieChart goodAnswers={goodAnswers} badAnswers={badAnswers} />;
+        return (
+          <PieChart
+            goodAnswers={goodAnswers}
+            badAnswers={badAnswers}
+            title={category}
+          />
+        );
       })}
     </div>
   );

@@ -1,0 +1,12 @@
+.pie-chart {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  min-height: 300px;
+  min-width: 350px;
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

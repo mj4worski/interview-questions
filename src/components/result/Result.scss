@@ -3,4 +3,8 @@
 .result {
   font-size: 3rem;
   color: $color-dark-blue;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-around;
 }

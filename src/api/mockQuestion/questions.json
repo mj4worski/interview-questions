@@ -69,5 +69,95 @@
       }
     ],
     "category": "javascript"
+  },
+  {
+    "question":
+      "What React function allows you to render the content to be displayed?",
+    "answers": [
+      {
+        "answer": "render()",
+        "correct": true
+      },
+      {
+        "answer": "show()",
+        "correct": false
+      },
+      {
+        "answer": "display()",
+        "correct": false
+      },
+      {
+        "answer": "build()",
+        "correct": false
+      }
+    ],
+    "category": "react"
+  },
+  {
+    "question": "Which can change the state of the component?",
+    "answers": [
+      {
+        "answer": "forceUpdate",
+        "correct": false
+      },
+      {
+        "answer": "setState",
+        "correct": true
+      },
+      {
+        "answer": "updateState",
+        "correct": false
+      },
+      {
+        "answer": "None of the mentioned",
+        "correct": false
+      }
+    ],
+    "category": "react"
+  },
+  {
+    "question":
+      "Which of the following is NOT a valid border-style property value?",
+    "answers": [
+      {
+        "answer": "dotted",
+        "correct": false
+      },
+      {
+        "answer": "inset",
+        "correct": false
+      },
+      {
+        "answer": "glazed",
+        "correct": true
+      },
+      {
+        "answer": "solid",
+        "correct": false
+      }
+    ],
+    "category": "css"
+  },
+  {
+    "question": "Which of the following is NOT a valid CSS length unit?",
+    "answers": [
+      {
+        "answer": "cm",
+        "correct": false
+      },
+      {
+        "answer": "dm",
+        "correct": true
+      },
+      {
+        "answer": "em",
+        "correct": false
+      },
+      {
+        "answer": "mm",
+        "correct": false
+      }
+    ],
+    "category": "css"
   }
 ]
