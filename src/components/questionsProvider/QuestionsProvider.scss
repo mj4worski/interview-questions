@@ -1,3 +1,20 @@
-.questions-provider {
+@import '../../settings.scss';
 
+.questions-provider {
+}
+
+.questions-provider-header {
+  display: flex;
+  background: $color-dark-blue;
+  color: $color-white;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+}
+
+.questions-provider-list {
+  margin: 2rem 0;
+
+  &__question {
+
+  }
 }
