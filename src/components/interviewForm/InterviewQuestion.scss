@@ -3,15 +3,7 @@
 $number-height: 5rem;
 
 .interview-question {
-  border: $color-dark-blue 1px solid;
-  border-radius: 8px;
-  color: $color-blue;
-  font-size: 2rem;
-  font-weight: 600;
-  width: 75vw;
-  padding: 2.5rem 4.5rem;
   position: relative;
-  margin-bottom: 6rem;
 
   &__question-mark {
     display: flex;

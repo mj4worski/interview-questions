@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import Header from './components/Header';
 import Result from './components/result';
-import { InterviewForm } from './components/question';
+import { InterviewForm } from './components/interviewForm';
+import QuestionsProvider from './components/questionsProvider';
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <main className="sections">
             <Route exact path="/" component={InterviewForm} />
             <Route exact path="/result" component={Result} />
+            <Route exact path="/questions" component={QuestionsProvider} />
           </main>
         </div>
       </Router>
