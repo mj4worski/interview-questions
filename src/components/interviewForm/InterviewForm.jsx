@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { uniqBy } from 'lodash';
-import { getQuestions } from '../../api';
 import InterviewQuestion from './InterviewQuestion';
 import { Button } from '../common';
 import './InterviewForm.css';
 
 class InterviewForm extends Component {
   state = {
-    questions: [],
     fireRedirect: false
   };
 
   static propTypes = {
+    questions: PropTypes.array,
     onFormSubmit: PropTypes.func.isRequired
   };
 
-  componentDidMount() {
-    this.setState({ questions: getQuestions() });
-  }
+  static defaultProps = {
+    questions: []
+  };
 
   userAnswers = [];
 
@@ -35,7 +34,8 @@ class InterviewForm extends Component {
   };
 
   render() {
-    const { questions, fireRedirect } = this.state;
+    const { questions } = this.props;
+    const { fireRedirect } = this.state;
     const { from } = this.props.location.state || '/';
     if (questions.length > 0) {
       return (

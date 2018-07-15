@@ -18,7 +18,7 @@ export default class AddQuestion extends PureComponent {
   };
 
   state = {
-    category: []
+    category: {}
   };
 
   handleOnChange = value => {

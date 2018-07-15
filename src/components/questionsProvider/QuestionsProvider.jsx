@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button } from '../common';
 import AddQuestion from './AddQuestion';
-import { getQuestions } from '../../api';
 import './QuestionsProvider.css';
 
 const getCategories = questions => {
@@ -17,6 +17,14 @@ class QuestionsProvider extends Component {
     addQuestionClicked: false
   };
 
+  static propTypes = {
+    questions: PropTypes.array
+  };
+
+  static defaultProps = {
+    questions: []
+  };
+
   handleButtonClick = () => {
     this.setState(prevState => {
       return { addQuestionClicked: !prevState.addQuestionClicked };
@@ -24,8 +32,8 @@ class QuestionsProvider extends Component {
   };
 
   render() {
+    const { questions } = this.props;
     const { addQuestionClicked } = this.state;
-    const questions = getQuestions();
     const categories = getCategories(questions);
     return (
       <Box>
