@@ -4,6 +4,14 @@ import AddQuestion from './AddQuestion';
 import { getQuestions } from '../../api';
 import './QuestionsProvider.css';
 
+const getCategories = questions => {
+  const categories = questions.reduce((categories, question) => {
+    categories.add(question.category);
+    return categories;
+  }, new Set());
+  return [...categories];
+};
+
 class QuestionsProvider extends Component {
   state = {
     addQuestionClicked: false
@@ -18,6 +26,7 @@ class QuestionsProvider extends Component {
   render() {
     const { addQuestionClicked } = this.state;
     const questions = getQuestions();
+    const categories = getCategories(questions);
     return (
       <Box>
         <Box className="questions-provider-header">
@@ -25,10 +34,12 @@ class QuestionsProvider extends Component {
           option of adding new question or current ones.
           <Button onClick={this.handleButtonClick}>Add new question</Button>
         </Box>
-        {addQuestionClicked && <AddQuestion />}
+        {addQuestionClicked && <AddQuestion categories={categories} />}
         <ul className="questions-provider-list">
           {questions.map(({ question }) => (
-            <li className="questions-provider-list">{question}</li>
+            <li className="questions-provider-list" key={question}>
+              {question}
+            </li>
           ))}
         </ul>
       </Box>

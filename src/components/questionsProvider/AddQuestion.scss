@@ -3,39 +3,46 @@
 .add-question {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  opacity: 0;
-  animation: eject 1.5s ease;
+  opacity: 1;
+  animation: eject 1.5s ease-out;
   position: relative;
-
-  &--show {
-    opacity: 1;
-  }
 
   &__button {
     background-color: $color-dark-blue;
     color: $color-yellow;
-    width: 20%;
+    flex: 1;
+    margin-left: 1rem;
   }
 
-  &__label {
+  &__input-label {
     font-size: 1.35rem;
-    width: 100%;
+    flex: 5;
+  }
+
+  &__select-label {
+    font-size: 1.35rem;
+    flex: 2;
   }
 
   &__input {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 1.4rem;
     line-height: 1.5;
-    color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    height: 4.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    height: 3.65rem;
+    font-weight: 600;
+
+    &::placeholder {
+      color: #aaa;
+    }
   }
 }
 
