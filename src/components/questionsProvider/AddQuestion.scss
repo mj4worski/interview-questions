@@ -2,11 +2,10 @@
 
 .add-question {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   opacity: 1;
-  animation: eject 1.5s ease-out;
+  animation: eject 1s ease-out;
   position: relative;
 
   &__button {
@@ -16,14 +15,14 @@
     margin-left: 1rem;
   }
 
-  &__input-label {
+  &__label {
+    flex: 3;
     font-size: 1.35rem;
-    flex: 5;
-  }
+    padding: 0 1rem;
 
-  &__select-label {
-    font-size: 1.35rem;
-    flex: 2;
+    &--small {
+      flex: 1
+    }
   }
 
   &__input {
@@ -44,6 +43,30 @@
       color: #aaa;
     }
   }
+}
+
+.layout-body {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+
+  &__first-row {
+    margin: 1.2rem 0;
+    display: flex;
+  }
+
+  &__second-row {
+    margin: 1.2rem 0;
+    display: flex;
+  }
+}
+
+.layout-footer {
+  display: flex;
+  margin-top: 2rem;
+  color: $color-yellow;
+  font-weight: 600;
+  align-items: center;
 }
 
 @keyframes eject {
