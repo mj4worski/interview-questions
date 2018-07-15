@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Box, Button } from '../common';
+import AddQuestion from './AddQuestion';
 import { getQuestions } from '../../api';
 import './QuestionsProvider.css';
-
-const AddQuestion = () => <Box>Bla bla bla</Box>;
 
 class QuestionsProvider extends Component {
   state = {
