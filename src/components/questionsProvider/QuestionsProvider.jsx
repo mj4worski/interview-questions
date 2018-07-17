@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button } from '../common';
 import AddQuestion from './AddQuestion';
+import QuestionsList from './QuestionsList';
 import './QuestionsProvider.css';
 
 const getCategories = questions => {
@@ -49,13 +50,7 @@ class QuestionsProvider extends Component {
             addQuestionRequest={addQuestionRequest}
           />
         )}
-        <ul className="questions-provider-list">
-          {questions.map(({ question }) => (
-            <li className="questions-provider-list" key={question}>
-              {question}
-            </li>
-          ))}
-        </ul>
+        <QuestionsList questions={questions} />
       </Box>
     );
   }
