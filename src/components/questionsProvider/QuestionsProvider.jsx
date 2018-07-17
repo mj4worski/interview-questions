@@ -18,7 +18,8 @@ class QuestionsProvider extends Component {
   };
 
   static propTypes = {
-    questions: PropTypes.array
+    questions: PropTypes.array,
+    addQuestionRequest: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -32,7 +33,7 @@ class QuestionsProvider extends Component {
   };
 
   render() {
-    const { questions } = this.props;
+    const { questions, addQuestionRequest } = this.props;
     const { addQuestionClicked } = this.state;
     const categories = getCategories(questions);
     return (
@@ -42,7 +43,12 @@ class QuestionsProvider extends Component {
           option of adding new question or current ones.
           <Button onClick={this.handleButtonClick}>Add new question</Button>
         </Box>
-        {addQuestionClicked && <AddQuestion categories={categories} />}
+        {addQuestionClicked && (
+          <AddQuestion
+            categories={categories}
+            addQuestionRequest={addQuestionRequest}
+          />
+        )}
         <ul className="questions-provider-list">
           {questions.map(({ question }) => (
             <li className="questions-provider-list" key={question}>
