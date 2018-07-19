@@ -14,7 +14,7 @@ const toValueLabelObject = category => {
 
 export default class AddQuestion extends PureComponent {
   static propTypes = {
-    categories: PropTypes.array,
+    categories: PropTypes.array.isRequired,
     addQuestionRequest: PropTypes.func
   };
 

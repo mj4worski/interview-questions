@@ -50,7 +50,7 @@ class QuestionsProvider extends Component {
             addQuestionRequest={addQuestionRequest}
           />
         )}
-        <QuestionsList questions={questions} />
+        <QuestionsList questions={questions} categories={categories} />
       </Box>
     );
   }
