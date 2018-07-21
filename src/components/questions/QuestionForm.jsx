@@ -145,20 +145,25 @@ export default class QuestionForm extends PureComponent {
     const { answers } = this.state;
 
     return (
-      <ul>
-        {answers.map(({ answer, correct, id }) => (
-          <li className="question-form-answer-list__answer" key={id}>
-            <input
-              className="question-form__input"
-              type="text"
-              placeholder="Provide answer"
-              defaultValue={answer}
-              onChange={this.handleAnswerInputOnChange(id)}
-            />
-            <RadioButton defaultChecked={correct} />
-          </li>
-        ))}
-      </ul>
+      <div>
+        {answers.length > 0 && [
+          <h5>Possible answer to the question</h5>,
+          <ul>
+            {answers.map(({ answer, correct, id }) => (
+              <li className="question-form-answer-list__answer" key={id}>
+                <input
+                  className="question-form-answer-list__input"
+                  type="text"
+                  placeholder="Provide answer"
+                  defaultValue={answer}
+                  onChange={this.handleAnswerInputOnChange(id)}
+                />
+                <RadioButton defaultChecked={correct} />
+              </li>
+            ))}
+          </ul>
+        ]}
+      </div>
     );
   };
 
@@ -179,12 +184,7 @@ export default class QuestionForm extends PureComponent {
             </Button>
           </div>
         </div>
-
-        <div>
-          <h5>Possible answer to the question</h5>
-          {this.renderAnswers()}
-        </div>
-
+        {this.renderAnswers()}
         <div className="layout-footer">
           If you do not want to add anything else click button next to the
           message ;)

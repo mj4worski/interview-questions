@@ -1,5 +1,24 @@
 @import '../../settings.scss';
 
+@mixin input-style {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  height: 3.65rem;
+  font-weight: 600;
+
+  &::placeholder {
+    color: #aaa;
+  }
+}
+
 .question-form {
   display: flex;
   flex-direction: column;
@@ -7,18 +26,33 @@
   opacity: 1;
   animation: eject 1s ease-out;
   position: relative;
+  margin: 1rem 0;
 
   &__button {
+    display: flex;
+    align-items: center;
+    max-width: 240px;
     background-color: $color-dark-blue;
     color: $color-yellow;
     flex: 1;
     margin-left: 1rem;
+
+
+    &::before {
+      content: " ";
+      background: url("enter-arrow.svg") no-repeat;
+      background-size: contain;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
   &__label {
     flex: 3;
     font-size: 1.35rem;
-    padding: 0 1rem;
+    margin-right: 1rem;
 
     &--small {
       flex: 1
@@ -26,22 +60,7 @@
   }
 
   &__input {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    height: 3.65rem;
-    font-weight: 600;
-
-    &::placeholder {
-      color: #aaa;
-    }
+    @include input-style;
   }
 }
 
@@ -49,6 +68,11 @@
   &__answer {
     display: flex;
     align-items: center;
+  }
+
+  &__input {
+    @include input-style;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -74,11 +98,12 @@
   color: $color-yellow;
   font-weight: 600;
   align-items: center;
+  justify-content: center;
 }
 
 @keyframes eject {
   from {
-    top: -100px;
+    top: -200px;
     opacity: 0;
   }
   to {
