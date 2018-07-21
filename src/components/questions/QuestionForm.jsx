@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { Creatable } from 'react-select';
 import PropTypes from 'prop-types';
 import { Box, Button, RadioButton } from '../common';
@@ -13,15 +13,24 @@ const toValueLabelObject = category => {
 };
 
 export default class QuestionForm extends PureComponent {
-  static propTypes = {
-    categories: PropTypes.array.isRequired,
-    addQuestionRequest: PropTypes.func
+  state = {
+    category: this.props.categoryValue || '',
+    answers: this.props.answersValue || [],
+    question: ''
   };
 
-  state = {
-    category: '',
-    answers: [],
-    question: ''
+  static propTypes = {
+    categories: PropTypes.array.isRequired,
+    addQuestionRequest: PropTypes.func,
+    questionValue: PropTypes.string,
+    categoryValue: PropTypes.string,
+    answersValue: PropTypes.array
+  };
+
+  defaultProps = {
+    questionValue: '',
+    categoryValue: '',
+    answersValue: []
   };
 
   handleCategoryOnChange = ({ value }) => {
@@ -32,7 +41,7 @@ export default class QuestionForm extends PureComponent {
     this.setState({ question: event.target.value });
   };
 
-  handleClickOnAddAnswerButton = () => {
+  handleAddAnswerButtonOnClick = () => {
     if (this.answerInputRef.value) {
       this.setState(prevState => {
         const answer = this.answerInputRef.value;
@@ -59,52 +68,97 @@ export default class QuestionForm extends PureComponent {
     this.props.addQuestionRequest({ answers, category, question });
   };
 
-  render() {
-    const { categories } = this.props;
-    const { category, answers } = this.state;
+  renderQuestionAndCategory = () => {
+    const { categories, questionValue } = this.props;
+    const { category } = this.state;
 
+    return (
+      <Fragment>
+        <label className="question-form__label">
+          New Question
+          <input
+            className="question-form__input"
+            type="text"
+            placeholder="Provide new question"
+            onChange={this.handleQuestionInputOnChange}
+            defaultValue={questionValue}
+          />
+        </label>
+        <label className="question-form__label question-form__label--small">
+          Categories
+          <Creatable
+            options={categories.map(toValueLabelObject)}
+            onChange={this.handleCategoryOnChange}
+            value={category}
+            showNewOptionAtTop
+            className="question-form__select"
+            removeSelected
+          />
+        </label>
+      </Fragment>
+    );
+  };
+
+  renderAnswer = ({ answer, correct } = {}) => {
+    return (
+      <Fragment>
+        <label className="question-form__label">
+          Add answer
+          <input
+            className="question-form__input"
+            type="text"
+            placeholder="Provide answer"
+            ref={this.handleAnswerInputRef}
+            defaultValue={answer}
+          />
+        </label>
+        <label className="question-form__label question-form__label--small">
+          Is correct answer ?
+          <RadioButton
+            innerRef={this.handleAnswerCheckbox}
+            defaultChecked={correct}
+          />
+        </label>
+      </Fragment>
+    );
+  };
+
+  renderAnswers = () => {
+    const { answers } = this.state;
+
+    return (
+      <ul>
+        {answers.map(({ answer, correct }) => (
+          <li className="question-form-answer-list__answer" key={answer.answer}>
+            <input
+              className="question-form__input"
+              type="text"
+              placeholder="Provide answer"
+              ref={this.handleAnswerInputRef}
+              defaultValue={answer}
+            />
+            <RadioButton
+              innerRef={this.handleAnswerCheckbox}
+              defaultChecked={correct}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  render() {
     return (
       <Box className="question-form">
         <div className="layout-body">
           <div className="layout-body__first-row">
-            <label className="question-form__label">
-              New Question
-              <input
-                className="question-form__input"
-                type="text"
-                placeholder="Provide new question"
-                onChange={this.handleQuestionInputOnChange}
-              />
-            </label>
-            <label className="question-form__label question-form__label--small">
-              Categories
-              <Creatable
-                options={categories.map(toValueLabelObject)}
-                onChange={this.handleCategoryOnChange}
-                value={category}
-                showNewOptionAtTop
-                className="question-form__select"
-                removeSelected
-              />
-            </label>
+            {this.renderQuestionAndCategory()}
           </div>
           <div className="layout-body__second-row">
-            <label className="question-form__label">
-              Add answer
-              <input
-                className="question-form__input"
-                type="text"
-                placeholder="Provide answer"
-                ref={this.handleAnswerInputRef}
-              />
-            </label>
-            <label className="question-form__label question-form__label--small">
-              Is correct answer ?
-              <RadioButton innerRef={this.handleAnswerCheckbox} />
-            </label>
+            {this.renderAnswer()}
             <Button
               className="question-form__button"
-              onClick={this.handleClickOnAddAnswerButton}
+              onClick={this.handleAddAnswerButtonOnClick}
             >
               Add answer
             </Button>
@@ -112,7 +166,8 @@ export default class QuestionForm extends PureComponent {
         </div>
 
         <div>
-          <ul>{answers.map(({ answer }) => <li key={answer}>{answer}</li>)}</ul>
+          <h5>Possible answer to the question</h5>
+          {this.renderAnswers()}
         </div>
 
         <div className="layout-footer">

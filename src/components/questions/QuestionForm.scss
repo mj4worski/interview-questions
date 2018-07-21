@@ -45,6 +45,13 @@
   }
 }
 
+.question-form-answer-list {
+  &__answer {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .layout-body {
   display: flex;
   flex-direction: column;

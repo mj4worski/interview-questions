@@ -4,10 +4,12 @@ import './QuestionsList.css';
 
 const QuestionsList = ({ questions, categories }) => (
   <ul className="questions-list">
-    {questions.map(({ question }) => (
-      <Question key={question} categories={categories}>
-        {question}
-      </Question>
+    {questions.map(question => (
+      <Question
+        key={question.question}
+        categories={categories}
+        question={question}
+      />
     ))}
   </ul>
 );
