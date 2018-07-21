@@ -68,11 +68,12 @@
   &__answer {
     display: flex;
     align-items: center;
+    margin-bottom: 1.5rem;
   }
 
   &__input {
     @include input-style;
-    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
 

@@ -35,8 +35,14 @@ export default class QuestionForm extends PureComponent {
     answersValue: []
   };
 
-  handleCategoryOnChange = ({ value }) => {
-    this.setState({ category: value });
+  answerGroupName = uuid();
+
+  handleCategoryOnChange = category => {
+    if (category) {
+      this.setState({ category: category.value });
+    } else {
+      this.setState({ category: '' });
+    }
   };
 
   handleQuestionInputOnChange = event => {
@@ -147,8 +153,8 @@ export default class QuestionForm extends PureComponent {
     return (
       <div>
         {answers.length > 0 && [
-          <h5>Possible answer to the question</h5>,
-          <ul>
+          <h5 key="header">Possible answer to the question</h5>,
+          <ul key="answer-list">
             {answers.map(({ answer, correct, id }) => (
               <li className="question-form-answer-list__answer" key={id}>
                 <input
@@ -158,7 +164,10 @@ export default class QuestionForm extends PureComponent {
                   defaultValue={answer}
                   onChange={this.handleAnswerInputOnChange(id)}
                 />
-                <RadioButton defaultChecked={correct} />
+                <RadioButton
+                  defaultChecked={correct}
+                  name={this.answerGroupName}
+                />
               </li>
             ))}
           </ul>
