@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Button } from '../common';
-import AddQuestion from './AddQuestion';
+import QuestionForm from './QuestionForm';
 import './Question.css';
 
 class Question extends PureComponent {
@@ -26,7 +26,7 @@ class Question extends PureComponent {
             Edit
           </Button>
         </div>
-        {isEdited && <AddQuestion categories={categories} />}
+        {isEdited && <QuestionForm categories={categories} />}
       </li>
     );
   }

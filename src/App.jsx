@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 import Header from './components/Header';
 import Result from './components/result';
 import { InterviewForm } from './components/interviewForm';
-import QuestionsProvider from './components/questionsProvider';
+import QuestionsProvider from './components/questions';
 import './App.css';
 
 class App extends Component {

@@ -3,7 +3,7 @@ import { Creatable } from 'react-select';
 import PropTypes from 'prop-types';
 import { Box, Button, RadioButton } from '../common';
 import 'react-select/dist/react-select.css';
-import './AddQuestion.css';
+import './QuestionForm.css';
 
 const toValueLabelObject = category => {
   return {
@@ -12,7 +12,7 @@ const toValueLabelObject = category => {
   };
 };
 
-export default class AddQuestion extends PureComponent {
+export default class QuestionForm extends PureComponent {
   static propTypes = {
     categories: PropTypes.array.isRequired,
     addQuestionRequest: PropTypes.func
@@ -64,46 +64,46 @@ export default class AddQuestion extends PureComponent {
     const { category, answers } = this.state;
 
     return (
-      <Box className="add-question">
+      <Box className="question-form">
         <div className="layout-body">
           <div className="layout-body__first-row">
-            <label className="add-question__label">
+            <label className="question-form__label">
               New Question
               <input
-                className="add-question__input"
+                className="question-form__input"
                 type="text"
                 placeholder="Provide new question"
                 onChange={this.handleQuestionInputOnChange}
               />
             </label>
-            <label className="add-question__label add-question__label--small">
+            <label className="question-form__label question-form__label--small">
               Categories
               <Creatable
                 options={categories.map(toValueLabelObject)}
                 onChange={this.handleCategoryOnChange}
                 value={category}
                 showNewOptionAtTop
-                className="add-question__select"
+                className="question-form__select"
                 removeSelected
               />
             </label>
           </div>
           <div className="layout-body__second-row">
-            <label className="add-question__label">
+            <label className="question-form__label">
               Add answer
               <input
-                className="add-question__input"
+                className="question-form__input"
                 type="text"
                 placeholder="Provide answer"
                 ref={this.handleAnswerInputRef}
               />
             </label>
-            <label className="add-question__label add-question__label--small">
+            <label className="question-form__label question-form__label--small">
               Is correct answer ?
               <RadioButton innerRef={this.handleAnswerCheckbox} />
             </label>
             <Button
-              className="add-question__button"
+              className="question-form__button"
               onClick={this.handleClickOnAddAnswerButton}
             >
               Add answer
@@ -119,7 +119,7 @@ export default class AddQuestion extends PureComponent {
           If you do not want to add anything else click button next to the
           message ;)
           <Button
-            className="add-question__button"
+            className="question-form__button"
             onClick={this.handleOnSubmit}
           >
             Submit

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button } from '../common';
-import AddQuestion from './AddQuestion';
+import QuestionForm from './QuestionForm';
 import QuestionsList from './QuestionsList';
 import './QuestionsProvider.css';
 
@@ -45,7 +45,7 @@ class QuestionsProvider extends Component {
           <Button onClick={this.handleButtonClick}>Add new question</Button>
         </Box>
         {addQuestionClicked && (
-          <AddQuestion
+          <QuestionForm
             categories={categories}
             addQuestionRequest={addQuestionRequest}
           />
