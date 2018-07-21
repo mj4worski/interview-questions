@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button } from '../common';
 import QuestionFormContainer from './QuestionFormContainer';
 import QuestionsList from './QuestionsList';
-import './QuestionsProvider.css';
+import './QuestionsEditor.css';
 
 const getCategories = questions => {
   const categories = questions.reduce((categories, question) => {
@@ -13,7 +13,7 @@ const getCategories = questions => {
   return [...categories];
 };
 
-class QuestionsProvider extends Component {
+class QuestionsEditor extends Component {
   state = {
     addQuestionClicked: false
   };
@@ -38,8 +38,8 @@ class QuestionsProvider extends Component {
     const { addQuestionClicked } = this.state;
     const categories = getCategories(questions);
     return (
-      <Box>
-        <Box className="questions-provider-header">
+      <Box className="questions-editor">
+        <Box className="questions-editor-header">
           Below you can see current questions in interview form. You have the
           option of adding new question or current ones.
           <Button onClick={this.handleButtonClick}>Add new question</Button>
@@ -56,4 +56,4 @@ class QuestionsProvider extends Component {
   }
 }
 
-export default QuestionsProvider;
+export default QuestionsEditor;

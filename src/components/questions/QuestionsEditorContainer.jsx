@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import QuestionsProvider from './QuestionsProvider';
+import QuestionsEditor from './QuestionsEditor';
 import { addQuestion } from '../../actions';
 
 const mapStateToProps = ({ questions }) => {
@@ -7,5 +7,5 @@ const mapStateToProps = ({ questions }) => {
 };
 
 export default connect(mapStateToProps, { addQuestionRequest: addQuestion })(
-  QuestionsProvider
+  QuestionsEditor
 );
