@@ -5,22 +5,27 @@
     "answers": [
       {
         "answer": "lastIndexOf()",
-        "correct": true
+        "correct": true,
+        "id": "094cafe9-5a1b-4972-9055-78b6be9d48af"
       },
       {
         "answer": "search()",
-        "correct": false
+        "correct": false,
+        "id": "3ba6fe87-e43c-4687-98c0-60cda9239cfe"
       },
       {
         "answer": "substr()",
-        "correct": false
+        "correct": false,
+        "id": "372c8a4c-8721-4971-abb5-521cb4753e33"
       },
       {
         "answer": "indexOf()",
-        "correct": false
+        "correct": false,
+        "id": "fb5479e6-7678-413e-9cfc-3ad1e8c954aa"
       }
     ],
-    "category": "javascript"
+    "category": "javascript",
+    "id": "6d1c2bdf-3127-4c5b-aa8d-8a081f8e70a8"
   },
   {
     "question": "Which of the following is a disadvantage of using JavaScript?",
@@ -28,24 +33,29 @@
       {
         "answer":
           "Client-side JavaScript does not allow the reading or writing of files.",
-        "correct": false
+        "correct": false,
+        "id": "ea369947-5d91-46a6-8917-160a840b5d8f"
       },
       {
         "answer":
           "JavaScript can not be used for Networking applications because there is no such support available.",
-        "correct": false
+        "correct": false,
+        "id": "ae9b6eb4-71bc-4ecc-a1c6-fb2b1745372a"
       },
       {
         "answer":
           "JavaScript doesn't have any multithreading or multiprocess capabilities.",
-        "correct": false
+        "correct": false,
+        "id": "04d719dc-1097-4f06-bcf3-4abc05d0b431"
       },
       {
         "answer": "All of the above.",
-        "correct": true
+        "correct": true,
+        "id": "c71be3e5-31a6-429d-b608-12766a3ebd3a"
       }
     ],
-    "category": "javascript"
+    "category": "javascript",
+    "id": "ecd99da5-ad28-4346-89c3-b0a886eaed2d"
   },
   {
     "question":
@@ -53,22 +63,27 @@
     "answers": [
       {
         "answer": "sup()",
-        "correct": false
+        "correct": false,
+        "id": "9ef37d04-5b29-45ad-bbe7-3929fc0d4f9b"
       },
       {
         "answer": "small()",
-        "correct": false
+        "correct": false,
+        "id": "ce642632-95c2-4c33-9b11-53b6b6e21844"
       },
       {
         "answer": "strike()",
-        "correct": false
+        "correct": false,
+        "id": "18b688a3-c4d3-44d0-84aa-05fc72bfe683"
       },
       {
         "answer": "sub()",
-        "correct": true
+        "correct": true,
+        "id": "11c5854e-2312-409e-9fb1-5f7e62056516"
       }
     ],
-    "category": "javascript"
+    "category": "javascript",
+    "id": "18314c0d-1830-4f71-964d-c2f852bf9829"
   },
   {
     "question":
@@ -76,44 +91,54 @@
     "answers": [
       {
         "answer": "render()",
-        "correct": true
+        "correct": true,
+        "id": "809df785-6a6f-409e-8174-fbecf5933335"
       },
       {
         "answer": "show()",
-        "correct": false
+        "correct": false,
+        "id": "9a026c1f-418a-42e3-ab40-c81c22943c50"
       },
       {
         "answer": "display()",
-        "correct": false
+        "correct": false,
+        "id": "19d41945-f7dc-47f9-b214-68b5064879e6"
       },
       {
         "answer": "build()",
-        "correct": false
+        "correct": false,
+        "id": "601a9606-ec1e-46dc-92d0-16843c9d2feb"
       }
     ],
-    "category": "react"
+    "category": "react",
+    "id": "aed15a50-bbb6-48b6-9a00-1c2d274ee49c"
   },
   {
     "question": "Which can change the state of the component?",
     "answers": [
       {
         "answer": "forceUpdate",
-        "correct": false
+        "correct": false,
+        "id": "735a23fb-5146-4cc7-b0ca-ef5fc7cfde20"
       },
       {
         "answer": "setState",
-        "correct": true
+        "correct": true,
+        "id": "61e52ee4-3247-4862-8fd6-fef3d99b4a39"
       },
       {
         "answer": "updateState",
-        "correct": false
+        "correct": false,
+        "id": "aae31caa-70cd-4225-bf4f-1735f1ca744d"
       },
       {
         "answer": "None of the mentioned",
-        "correct": false
+        "correct": false,
+        "id": "67d8b80b-bfa7-42a6-b65f-91067ebb7b23"
       }
     ],
-    "category": "react"
+    "category": "react",
+    "id": "9513da3b-ba08-49a0-80d1-2934f5561aa7"
   },
   {
     "question":
@@ -121,43 +146,53 @@
     "answers": [
       {
         "answer": "dotted",
-        "correct": false
+        "correct": false,
+        "id": "0d760c83-3694-42a8-a98e-b4845ab6c448"
       },
       {
         "answer": "inset",
-        "correct": false
+        "correct": false,
+        "id": "873639b7-af91-404c-bd17-c166b933433a"
       },
       {
         "answer": "glazed",
-        "correct": true
+        "correct": true,
+        "id": "35cea618-20b4-4e5d-9932-c52177737ec2"
       },
       {
         "answer": "solid",
-        "correct": false
+        "correct": false,
+        "id": "60cd59ec-bdc0-4f7a-9d99-5a2438ebe9dd"
       }
     ],
-    "category": "css"
+    "category": "css",
+    "id": "674165b6-27ea-4066-9c6a-c8919480255b"
   },
   {
     "question": "Which of the following is NOT a valid CSS length unit?",
     "answers": [
       {
         "answer": "cm",
-        "correct": false
+        "correct": false,
+        "id": "847ae59c-fa90-4a74-8ebf-0a489e016bbf"
       },
       {
         "answer": "dm",
-        "correct": true
+        "correct": true,
+        "id": "867789b3-dd47-438f-a417-6e20bee278e6"
       },
       {
         "answer": "em",
-        "correct": false
+        "correct": false,
+        "id": "f5fa696b-418c-4a7b-836b-3a7b21d16e51"
       },
       {
         "answer": "mm",
-        "correct": false
+        "correct": false,
+        "id": "ab2d1b8e-79a8-4e27-8420-372da0f88015"
       }
     ],
-    "category": "css"
+    "category": "css",
+    "id": "2737ca68-fafb-4ec8-a116-045d00a68de1"
   }
 ]

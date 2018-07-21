@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { Creatable } from 'react-select';
 import PropTypes from 'prop-types';
+import uuid from 'uuid4';
 import { Box, Button, RadioButton } from '../common';
 import 'react-select/dist/react-select.css';
 import './QuestionForm.css';
@@ -16,18 +17,19 @@ export default class QuestionForm extends PureComponent {
   state = {
     category: this.props.categoryValue || '',
     answers: this.props.answersValue || [],
-    question: ''
+    question: this.props.questionValue || ''
   };
 
   static propTypes = {
     categories: PropTypes.array.isRequired,
     addQuestionRequest: PropTypes.func,
+    questionId: PropTypes.string,
     questionValue: PropTypes.string,
     categoryValue: PropTypes.string,
     answersValue: PropTypes.array
   };
 
-  defaultProps = {
+  static defaultProps = {
     questionValue: '',
     categoryValue: '',
     answersValue: []
@@ -49,10 +51,21 @@ export default class QuestionForm extends PureComponent {
         this.answerInputRef.value = '';
         this.answerCheckbox.checked = false;
         return {
-          answers: [...prevState.answers, { answer, correct }]
+          answers: [...prevState.answers, { answer, correct, id: uuid() }]
         };
       });
     }
+  };
+
+  handleAnswerInputOnChange = answerId => event => {
+    this.setState({
+      answers: this.state.answers.map(
+        answer =>
+          answer.id === answerId
+            ? Object.assign({}, answer, { answer: event.target.value })
+            : answer
+      )
+    });
   };
 
   handleAnswerInputRef = ref => {
@@ -65,7 +78,12 @@ export default class QuestionForm extends PureComponent {
 
   handleOnSubmit = () => {
     const { answers, category, question } = this.state;
-    this.props.addQuestionRequest({ answers, category, question });
+    this.props.addQuestionRequest({
+      answers,
+      category,
+      question,
+      id: this.props.questionId || uuid()
+    });
   };
 
   renderQuestionAndCategory = () => {
@@ -128,19 +146,16 @@ export default class QuestionForm extends PureComponent {
 
     return (
       <ul>
-        {answers.map(({ answer, correct }) => (
-          <li className="question-form-answer-list__answer" key={answer.answer}>
+        {answers.map(({ answer, correct, id }) => (
+          <li className="question-form-answer-list__answer" key={id}>
             <input
               className="question-form__input"
               type="text"
               placeholder="Provide answer"
-              ref={this.handleAnswerInputRef}
               defaultValue={answer}
+              onChange={this.handleAnswerInputOnChange(id)}
             />
-            <RadioButton
-              innerRef={this.handleAnswerCheckbox}
-              defaultChecked={correct}
-            />
+            <RadioButton defaultChecked={correct} />
           </li>
         ))}
       </ul>

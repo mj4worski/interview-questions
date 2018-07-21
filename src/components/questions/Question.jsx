@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../common';
-import QuestionForm from './QuestionForm';
+import QuestionFormContainer from './QuestionFormContainer';
 import { QuestionType } from './types';
 import './Question.css';
 
@@ -20,7 +20,7 @@ class Question extends PureComponent {
 
   render() {
     const { categories, question: questionObject } = this.props;
-    const { question, category, answers } = questionObject;
+    const { question, category, answers, id } = questionObject;
     const { isEdited } = this.state;
     return (
       <li className="question">
@@ -34,11 +34,12 @@ class Question extends PureComponent {
           </Button>
         </div>
         {isEdited && (
-          <QuestionForm
+          <QuestionFormContainer
             categories={categories}
             questionValue={question}
             categoryValue={category}
             answersValue={answers}
+            questionId={id}
           />
         )}
       </li>
