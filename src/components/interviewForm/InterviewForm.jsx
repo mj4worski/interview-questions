@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { uniqBy } from 'lodash';
+import uniqBy from 'lodash/unionBy';
 import InterviewQuestion from './InterviewQuestion';
 import { Button } from '../common';
 import './InterviewForm.css';

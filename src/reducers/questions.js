@@ -1,6 +1,4 @@
-import questionsData from '../questions';
-
-const questions = (state = questionsData, action) => {
+const questions = (state = [], action) => {
   switch (action.type) {
     case 'ADD_QUESTION':
       const { question: questionFromAction } = action;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { groupBy } from 'lodash';
+import groupBy from 'lodash/groupBy';
 import PieChart from './PieChart';
 import './Result.css';
 
