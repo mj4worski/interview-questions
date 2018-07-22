@@ -2,7 +2,7 @@ const questions = (state = [], action) => {
   switch (action.type) {
     case 'ADD_QUESTION':
       const { question: questionFromAction } = action;
-      const shouldUpdate = state.some(
+      const shouldUpdate = state.testResult(
         question => question.id === questionFromAction.id
       );
       if (shouldUpdate) {

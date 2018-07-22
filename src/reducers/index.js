@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import answers from './answers';
+import testResult from './testResult';
 import questions from './questions';
 
 export default combineReducers({
-  answers,
+  testResult,
   questions
 });

@@ -1,23 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../common/Box';
-import questionMark from './question-mark.svg';
-import Answer from './Answer';
-import './InterviewQuestion.css';
 import uuid from 'uuid4';
+import Box from '../common/Box';
+import Answer from './Answer';
+import { QuestionType } from '../types';
+import questionMark from './question-mark.svg';
+import './InterviewQuestion.css';
 
-class InterviewQuestions extends PureComponent {
+class InterviewQuestion extends PureComponent {
   static propTypes = {
-    interviewQuestion: PropTypes.shape({
-      question: PropTypes.string,
-      answers: PropTypes.arrayOf(
-        PropTypes.shape({
-          answer: PropTypes.string,
-          correct: PropTypes.bool
-        })
-      ),
-      category: PropTypes.string
-    }),
+    interviewQuestion: QuestionType,
     onAnswerClick: PropTypes.func
   };
 
@@ -54,4 +46,4 @@ class InterviewQuestions extends PureComponent {
   }
 }
 
-export default InterviewQuestions;
+export default InterviewQuestion;

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import InterviewForm from './InterviewForm';
-import { addAnswers } from '../../actions';
+import { addTestResult } from '../../actions';
 
 const mapStateToProps = ({ questions }) => {
   return { questions };
 };
 
-export default connect(mapStateToProps, { onFormSubmit: addAnswers })(
-  InterviewForm
-);
+export default connect(
+  mapStateToProps,
+  { onFormSubmit: addTestResult }
+)(InterviewForm);

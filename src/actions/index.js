@@ -1,6 +1,6 @@
-export const addAnswers = answers => ({
-  type: 'ADD_ANSWERS',
-  answers
+export const addTestResult = testResult => ({
+  type: 'ADD_TEST_RESULT',
+  testResult
 });
 
 export const addQuestion = question => ({

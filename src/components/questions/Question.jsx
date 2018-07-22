@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../common';
 import QuestionFormContainer from './QuestionFormContainer';
-import { QuestionType } from './types';
+import { QuestionType } from '../types';
 import './Question.css';
 
 class Question extends PureComponent {

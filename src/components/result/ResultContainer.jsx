@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 import Result from './Result';
 
-function mapStateToProps(state) {
-  return { answers: state.answers };
+function mapStateToProps({ testResult }) {
+  return { testResult };
 }
 
-export default connect(mapStateToProps, null)(Result);
+export default connect(
+  mapStateToProps,
+  null
+)(Result);

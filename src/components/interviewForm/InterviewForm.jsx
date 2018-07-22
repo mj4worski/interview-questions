@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import uniqBy from 'lodash/unionBy';
+import { QuestionType } from '../types';
 import InterviewQuestion from './InterviewQuestion';
 import { Button } from '../common';
 import './InterviewForm.css';
@@ -12,7 +12,7 @@ class InterviewForm extends Component {
   };
 
   static propTypes = {
-    questions: PropTypes.array,
+    questions: PropTypes.arrayOf(QuestionType),
     onFormSubmit: PropTypes.func.isRequired
   };
 
@@ -20,24 +20,35 @@ class InterviewForm extends Component {
     questions: []
   };
 
-  userAnswers = [];
-
-  collectUserAnswer = answer => {
-    this.userAnswers.push(answer);
+  collectUserAnswer = questionId => answer => {
+    this.testResult[questionId].answer = answer;
   };
 
   submitForm = () => {
-    this.props.onFormSubmit(
-      uniqBy(this.userAnswers.reverse(), answer => answer.question)
-    );
+    this.props.onFormSubmit(this.testResult);
     this.setState({ fireRedirect: true });
+  };
+
+  createTestResultStructure = questions => {
+    this.testResult = questions.reduce((testResult, processedQuestion) => {
+      const { id: questionId, question, category } = processedQuestion;
+      return {
+        ...testResult,
+        [questionId]: {
+          question,
+          category,
+          answer: null
+        }
+      };
+    }, {});
   };
 
   render() {
     const { questions } = this.props;
     const { fireRedirect } = this.state;
     const { from } = this.props.location.state || '/';
-    if (questions.length > 0) {
+    if (questions.length > 0 && !fireRedirect) {
+      this.createTestResultStructure(questions);
       return (
         <section className="interview-form">
           <div className="interview-form__questions">
@@ -45,7 +56,7 @@ class InterviewForm extends Component {
               <InterviewQuestion
                 interviewQuestion={interviewQuestion}
                 key={interviewQuestion.question}
-                onAnswerClick={this.collectUserAnswer}
+                onAnswerClick={this.collectUserAnswer(interviewQuestion.id)}
               />
             ))}
           </div>
@@ -56,11 +67,13 @@ class InterviewForm extends Component {
             </span>
             <Button onClick={this.submitForm}>Confirm your results</Button>
           </div>
-          {fireRedirect && <Redirect to={from || '/result'} />}
         </section>
       );
+    } else if (fireRedirect) {
+      return <Redirect to={from || '/result'} />;
+    } else {
+      return null;
     }
-    return null;
   }
 }
 
