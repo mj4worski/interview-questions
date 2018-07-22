@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import PieChart from './PieChart';
+import RadarChart from './RadarChart';
 import './Result.css';
 
 const initPossibilityResult = {
@@ -34,12 +36,22 @@ const checkTestResults = testResult => {
   }, {});
 };
 
-const Result = ({ testResult }) => {
-  const checkedTestResult = checkTestResults(testResult);
-  return (
-    <div className="result">
-      {Object.keys(checkedTestResult).map(category => {
-        const { goodAnswers, badAnswers, withoutAnswers } = checkedTestResult[
+const convertTestResultToPercentages = testResult => {
+  return Object.keys(testResult).map(category => {
+    const { goodAnswers, badAnswers, withoutAnswers } = testResult[category];
+    return (100 * goodAnswers) / (goodAnswers + badAnswers + withoutAnswers);
+  });
+};
+
+class Result extends Component {
+  static propTypes = {
+    testResult: PropTypes.object
+  };
+
+  renderPieCharts = resultsToRender => (
+    <div className="result-pie-charts">
+      {Object.keys(resultsToRender).map(category => {
+        const { goodAnswers, badAnswers, withoutAnswers } = resultsToRender[
           category
         ];
         return (
@@ -54,6 +66,35 @@ const Result = ({ testResult }) => {
       })}
     </div>
   );
-};
+
+  renderRadarChart = checkedTestResult => {
+    const resultsInPercentages = convertTestResultToPercentages(
+      checkedTestResult
+    );
+    const categories = Object.keys(checkedTestResult);
+    if (resultsInPercentages.length > 0) {
+      return (
+        <RadarChart
+          label="Percentage result in each category"
+          categories={categories}
+          data={resultsInPercentages}
+        />
+      );
+    }
+    return null;
+  };
+
+  render() {
+    const { testResult } = this.props;
+    const checkedTestResult = checkTestResults(testResult);
+
+    return (
+      <div className="result">
+        {this.renderPieCharts(checkedTestResult)}
+        {this.renderRadarChart(checkedTestResult)}
+      </div>
+    );
+  }
+}
 
 export default Result;

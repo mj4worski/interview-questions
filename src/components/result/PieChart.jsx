@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../common';
 import { Pie } from 'react-chartjs-2';
 import './PieChart.css';
 
 const PieChar = ({ goodAnswers, badAnswers, withoutAnswers, title }) => (
-  <div className="pie-chart">
+  <Box className="pie-chart">
     <div className="pie-chart__title">{title}</div>
     <Pie
       data={{
@@ -18,7 +19,7 @@ const PieChar = ({ goodAnswers, badAnswers, withoutAnswers, title }) => (
         ]
       }}
     />
-  </div>
+  </Box>
 );
 
 PieChar.propTypes = {
