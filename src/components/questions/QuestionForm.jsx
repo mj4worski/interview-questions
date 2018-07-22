@@ -17,7 +17,8 @@ export default class QuestionForm extends PureComponent {
   state = {
     category: this.props.categoryValue || '',
     answers: this.props.answersValue || [],
-    question: this.props.questionValue || ''
+    question: this.props.questionValue || '',
+    categories: this.props.categories
   };
 
   static propTypes = {
@@ -39,7 +40,16 @@ export default class QuestionForm extends PureComponent {
 
   handleCategoryOnChange = category => {
     if (category) {
-      this.setState({ category: category.value });
+      const isNewCategory =
+        this.state.categories.filter(
+          categoryItem => categoryItem === category.label
+        ).length === 0;
+      this.setState(prevState => ({
+        category: category.value,
+        categories: isNewCategory
+          ? [...prevState.categories, category.value]
+          : prevState.categories
+      }));
     } else {
       this.setState({ category: '' });
     }
@@ -64,14 +74,14 @@ export default class QuestionForm extends PureComponent {
   };
 
   handleAnswerInputOnChange = answerId => event => {
-    this.setState({
-      answers: this.state.answers.map(
+    this.setState(prevState => ({
+      answers: prevState.answers.map(
         answer =>
           answer.id === answerId
             ? Object.assign({}, answer, { answer: event.target.value })
             : answer
       )
-    });
+    }));
   };
 
   handleAnswerInputRef = ref => {
@@ -93,8 +103,8 @@ export default class QuestionForm extends PureComponent {
   };
 
   renderQuestionAndCategory = () => {
-    const { categories, questionValue } = this.props;
-    const { category } = this.state;
+    const { questionValue } = this.props;
+    const { category, categories } = this.state;
 
     return (
       <Fragment>
